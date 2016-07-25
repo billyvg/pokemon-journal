@@ -13,7 +13,7 @@ class Auth {
   @observable provider = 'google';
   @observable username;
   @observable password;
-  @observable authed = true;
+  @observable authed = false;
   @observable location;
   @observable _pokemon = [];
   @observable sort = 'recent';
@@ -58,10 +58,6 @@ class Auth {
   }
 
   @action getPokemon() {
-    // XXX Test from local file
-    const fs = require('fs');
-    this._pokemon = JSON.parse(fs.readFileSync('response.json'));
-    return;
     this.api.GetInventory((err, res) => {
       if (!err) {
         if (res && res.inventory_delta && res.inventory_delta.inventory_items) {
