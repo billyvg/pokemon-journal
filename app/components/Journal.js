@@ -49,7 +49,7 @@ export default class Journal extends Component {
           <ToolbarGroup>
             <RaisedButton
               type="submit"
-              label="Load"
+              label="Refresh"
               onClick={this.handleGetPokemon}
               primary
             />
