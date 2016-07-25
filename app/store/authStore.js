@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import storage from 'electron-json-storage';
 import autobind from 'autobind-decorator';
 import {
   observable,
@@ -6,22 +7,30 @@ import {
   computed,
 } from 'mobx';
 import { Pokeio } from 'pokemon-go-node-api';
+
 import POKEMON_META from '../api/pokemons';
 import Sort from '../api/sort';
 import { calculateCP } from '../api/calculations';
 
+
 class Auth {
   @observable provider = 'google';
   @observable username;
+  @observable sort = 'recent';
+  @observable locationString;
   @observable password;
   @observable authed = false;
   @observable location;
   @observable _pokemon = [];
-  @observable sort = 'recent';
-  @observable locationString = 'San Francisco';
 
   constructor() {
     this.api = new Pokeio();
+
+    storage.get('pokemonJournal', (err, data) => {
+      this.username = data.username;
+      this.provider = data.provider || this.provider;
+      this.locationString = data.locationString;
+    });
 
     this.getLocation();
   }
@@ -55,6 +64,18 @@ class Auth {
   @action
   login() {
     if (this.username && this.password && this.provider) {
+      const {
+        username,
+        locationString,
+        provider,
+      } = this;
+
+      storage.set('pokemonJournal', {
+        username,
+        provider,
+        locationString,
+      });
+
       if (!this.location && !this.locationString) {
         this.getLocation();
       } else {
