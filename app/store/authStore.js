@@ -8,6 +8,7 @@ import {
 import { Pokeio } from 'pokemon-go-node-api';
 import POKEMON_META from '../api/pokemons';
 import Sort from '../api/sort';
+import { calculateCP } from '../api/calculations';
 
 class Auth {
   @observable provider = 'google';
@@ -93,16 +94,13 @@ class Auth {
             return item.inventory_item_data.pokemon && item.inventory_item_data.pokemon.pokemon_id;
           }).map((item) => item.inventory_item_data.pokemon)
             .map((pokemon) => {
-              console.log(pokemon.pokemon_id);
               const meta = POKEMON_META[pokemon.pokemon_id - 1];
               return {
                 ...pokemon,
-                name: meta.name,
-                img: meta.img,
-                type: meta.type,
+                ...calculateCP(pokemon),
+                meta,
               };
-            })
-
+            });
 
           const fs = require('fs');
           fs.writeFileSync('response.json', JSON.stringify(filtered, null, 2));
