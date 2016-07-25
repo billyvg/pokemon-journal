@@ -33,10 +33,8 @@ class Auth {
         resolve(loc);
       }, (err) => {
         console.error('Error getting location', err);
-      }, {
-        enableHighAccuracy: true,
+        reject(err);
       });
-
     });
   }
 
