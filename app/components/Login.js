@@ -47,6 +47,14 @@ export default class Login extends Component {
     authStore.password = e.target.value;
   }
 
+  handleLocation(e, value) {
+    const {
+      authStore,
+    } = this.props;
+
+    authStore.locationString = e.target.value;
+  }
+
   render() {
     const {
       authStore,
@@ -74,24 +82,35 @@ export default class Login extends Component {
           </SelectField>
         </div>
 
-        <TextField
-          hintText="Username"
-          onChange={this.handleUsername}
-          value={authStore.username}
-          name="username"
-          floatingLabelText="Username"
-        />
-        <br />
+        <div>
+          <TextField
+            hintText="Username"
+            onChange={this.handleUsername}
+            value={authStore.username}
+            name="username"
+            floatingLabelText="Username"
+          />
+        </div>
 
-        <TextField
-          hintText="Password"
-          onChange={this.handlePassword}
-          value={authStore.password}
-          floatingLabelText="Password"
-          type="password"
-          name="password"
-        />
-        <br />
+        <div>
+          <TextField
+            hintText="Password"
+            onChange={this.handlePassword}
+            value={authStore.password}
+            floatingLabelText="Password"
+            type="password"
+            name="password"
+          />
+        </div>
+
+        <div>
+          <TextField
+            hintText="Location"
+            onChange={this.handleLocation}
+            value={authStore.locationString}
+            floatingLabelText="Location"
+          />
+        </div>
 
         <RaisedButton
           type="submit"

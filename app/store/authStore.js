@@ -1,10 +1,10 @@
+import _ from 'lodash';
 import autobind from 'autobind-decorator';
 import {
   observable,
   action,
   computed,
 } from 'mobx';
-
 import { Pokeio } from 'pokemon-go-node-api';
 import POKEMON_META from '../api/pokemons';
 import Sort from '../api/sort';
@@ -17,12 +17,26 @@ class Auth {
   @observable location;
   @observable _pokemon = [];
   @observable sort = 'recent';
+  @observable locationString = 'San Francisco';
 
   constructor() {
     this.api = new Pokeio();
 
-    navigator.geolocation.getCurrentPosition((loc) => {
-      this.location = loc.coords;
+    this.getLocation();
+  }
+
+  @action
+  getLocation() {
+    return new Promise((resolve, reject) => {
+      navigator.geolocation.getCurrentPosition((loc) => {
+        this.location = loc.coords;
+        resolve(loc);
+      }, (err) => {
+        console.error('Error getting location', err);
+      }, {
+        enableHighAccuracy: true,
+      });
+
     });
   }
 
@@ -39,21 +53,35 @@ class Auth {
 
   @action
   login() {
-    if (this.username && this.password && this.provider && this.location) {
-      const location = {
-        type: 'coords',
-        coords: this.location,
-      };
+    if (this.username && this.password && this.provider) {
+      if (!this.location && !this.locationString) {
+        this.getLocation();
+      } else {
+        let location;
 
-      this.api.init(this.username, this.password, location, this.provider, (err) => {
-        if (!err) {
-          this.authed = true;
-        } else {
-          console.error(err);
+        if (this.location) {
+          location = {
+            type: 'coords',
+            coords: this.location,
+          };
+        } else if (this.locationString) {
+          location = {
+            type: 'name',
+            name: this.locationString,
+          };
         }
-      });
+
+        this.api.init(this.username, this.password, location, this.provider, (err) => {
+          if (!err) {
+            this.authed = true;
+            this.getPokemon();
+          } else {
+            console.error(err);
+          }
+        });
+      }
     } else {
-      console.error('Cant login');
+      console.error('Cant login, missing authentication details.');
     }
   }
 
