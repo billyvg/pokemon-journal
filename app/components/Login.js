@@ -9,7 +9,6 @@ import {
   observer,
   inject,
 } from 'mobx-react';
-import styles from './Home.css';
 
 @inject('authStore')
 @autobind
@@ -62,7 +61,6 @@ export default class Login extends Component {
 
     return (
       <form
-        className={styles.container}
         onSubmit={this.login}
       >
         <div>

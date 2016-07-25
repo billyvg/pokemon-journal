@@ -9,6 +9,10 @@ body {
   overflow-y: auto;
 }
 
+#root, #app {
+  height: 100%;
+}
+
 h2 {
   margin: 0;
   font-size: 2.25rem;
