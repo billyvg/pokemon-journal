@@ -43,7 +43,9 @@ class Auth {
   @computed
   get pokemon() {
     const sorter = Sort[this.sort];
-    return _.sortBy(this._pokemon.slice(), sorter);
+    return _.reverse(
+      _.sortBy(this._pokemon.slice(), sorter)
+    );
   }
 
   @action
