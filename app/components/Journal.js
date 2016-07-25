@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 
 import RaisedButton from 'material-ui/RaisedButton';
-import Avatar from 'material-ui/Avatar';
-import { Card, CardHeader, CardTitle, CardText, CardMedia } from 'material-ui/Card';
-
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
@@ -15,8 +12,8 @@ import {
 } from 'mobx-react';
 import autobind from 'autobind-decorator';
 
-import styles from './Home.css';
-
+import PokemonList from './PokemonList';
+import styles from './Journal.css';
 
 @inject('authStore')
 @autobind
@@ -44,8 +41,8 @@ export default class Journal extends Component {
     } = this.props;
 
     return (
-      <div>
-        <Toolbar>
+      <div className={styles.container}>
+        <Toolbar className={styles.toolbar}>
           <ToolbarGroup>
             <RaisedButton
               type="submit"
@@ -64,19 +61,7 @@ export default class Journal extends Component {
           </ToolbarGroup>
         </Toolbar>
 
-        <div style={{overflowY: 'auto'}}>
-          {authStore.pokemon.map((pokemon, i) => {
-            return (
-              <Card key={i}>
-                <CardHeader
-                  title={`${pokemon.name} ${pokemon.nickname ? `(${pokemon.nickname})` : ''}`}
-                  subtitle={` IV: ${pokemon.individual_attack || 0} / ${pokemon.individual_defense || 0} / ${pokemon.individual_stamina || 0}`}
-                  avatar={pokemon.img}
-                />
-              </Card>
-            );
-          })}
-        </div>
+        <PokemonList />
       </div>
     );
   }
