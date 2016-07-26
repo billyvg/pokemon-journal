@@ -104,7 +104,7 @@
     "material-ui": "^0.15.2",
     "mobx": "^2.4.0",
     "mobx-react": "^3.5.1",
-    "pokemon-go-node-api": "^1.3.0",
+    "pokemon-go-node-api": "https://github.com/billyvg/Pokemon-GO-node-api",
     "postcss": "^5.1.0",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
