@@ -125,8 +125,10 @@ class Auth {
               };
             });
 
-          const fs = require('fs');
-          fs.writeFileSync('response.json', JSON.stringify(filtered, null, 2));
+          if (process.env.NODE_ENV !== 'production') {
+            const fs = require('fs');
+            fs.writeFileSync('response.json', JSON.stringify(filtered, null, 2));
+          }
           this._pokemon = filtered;
         }
       } else {
