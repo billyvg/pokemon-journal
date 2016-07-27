@@ -6,7 +6,11 @@ import {
   action,
   computed,
 } from 'mobx';
-import { Pokeio } from 'pokemon-go-node-api';
+import {
+  PTCLogin,
+  GoogleLogin,
+  Client,
+} from 'pogobuf';
 
 import POKEMON_META from '../api/pokemons';
 import Sort from '../api/sort';
@@ -24,8 +28,7 @@ class Auth {
   @observable _pokemon = [];
 
   constructor() {
-    this.api = new Pokeio();
-
+    this.client = new Client();
     storage.get('pokemonJournal', (err, data) => {
       this.username = data.username;
       this.provider = data.provider || this.provider;
@@ -65,12 +68,17 @@ class Auth {
 
   @action
   login() {
+    if (this.authed) {
+      return new Promise((resolve) => resolve(this.client.init()));
+    }
+
     if (this.username && this.password && this.provider) {
       const {
         username,
         locationString,
         provider,
       } = this;
+      const authLib = this.provider === 'google' ? new GoogleLogin() : new PTCLogin();
 
       storage.set('pokemonJournal', {
         username,
@@ -95,45 +103,45 @@ class Auth {
           };
         }
 
-        this.api.init(this.username, this.password, location, this.provider, (err) => {
-          if (!err) {
-            this.authed = true;
-            this.getPokemon();
-          } else {
-            console.error(err);
-          }
+
+        return authLib.login(this.username, this.password).then((token) => {
+          this.client.setAuthInfo(this.provider, token);
+          this.client.setPosition(0, 0);
+          this.authed = token;
+          return this.client.init();
+        }).catch((err) => {
+          console.error('Error logging in ', err);
         });
       }
     } else {
       console.error('Cant login, missing authentication details.');
+      return new Promise((resolve, reject) => reject('Unable to login'));
     }
   }
 
   @action getPokemon() {
-    this.api.GetInventory((err, res) => {
-      if (!err) {
-        if (res && res.inventory_delta && res.inventory_delta.inventory_items) {
-          const filtered = res.inventory_delta.inventory_items.filter((item) => {
-            return item.inventory_item_data.pokemon && item.inventory_item_data.pokemon.pokemon_id;
-          }).map((item) => item.inventory_item_data.pokemon)
-            .map((pokemon) => {
-              const meta = POKEMON_META[pokemon.pokemon_id - 1];
-              return {
-                ...pokemon,
-                ...calculateCP(pokemon),
-                meta,
-              };
-            });
+    return this.login().then(
+      () => this.client.getInventory(0)
+    ).then((inventory) => {
+      if (inventory.inventory_delta && inventory.inventory_delta.inventory_items) {
+        const filtered = inventory.inventory_delta.inventory_items.filter((item) => {
+          return item.inventory_item_data.pokemon_data && item.inventory_item_data.pokemon_data.pokemon_id;
+        }).map((item) => {
+          const pokemon = item.inventory_item_data.pokemon_data;
+          const meta = POKEMON_META[pokemon.pokemon_id - 1];
+          return {
+            ...pokemon,
+            ...calculateCP(pokemon),
+            meta,
+          };
+        });
 
-          if (process.env.NODE_ENV !== 'production') {
-            const fs = require('fs');
-            fs.writeFileSync('response.json', JSON.stringify(filtered, null, 2));
-          }
-          this._pokemon = filtered;
-        }
-      } else {
-        console.error(err);
+        // const fs = require('fs');
+        // fs.writeFileSync('response.json', JSON.stringify(filtered, null, 2));
+        this._pokemon = filtered;
       }
+    }).catch((err) => {
+      console.error('Error retrieving inventory');
     });
   }
 }

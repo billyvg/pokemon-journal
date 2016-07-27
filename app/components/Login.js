@@ -19,7 +19,7 @@ export default class Login extends Component {
       authStore,
     } = this.props;
     e.preventDefault();
-    authStore.login();
+    authStore.login().then(() => authStore.getPokemon());
   }
 
   handleSelect(e, index, value) {
