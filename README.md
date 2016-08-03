@@ -20,6 +20,9 @@ And then install dependencies.
 ```bash
 $ cd pokemon-journal && npm install
 ```
+### Windows
+
+Check out this issue https://github.com/electron-userland/electron-prebuilt/issues/76#issuecomment-191259022 if you are having problems
 
 ## Run
 
