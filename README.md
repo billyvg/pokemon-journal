@@ -22,7 +22,7 @@ cd pokemon-journal && npm install
 Then
 
 ```bash
-$ npm run dev
+npm run dev
 ```
 
 ### Windows
