@@ -9,25 +9,26 @@ View your pokemon and their individual values.
 
 ## Install
 
-First, clone the repo via git:
+Download a pre-built package here: https://github.com/billyvg/pokemon-journal/releases
+
+## Development
+Clone the repo and install dependencies:
 
 ```bash
 git clone https://github.com/billyvg/pokemon-journal.git
+cd pokemon-journal && npm install
 ```
 
-And then install dependencies.
-
-```bash
-$ cd pokemon-journal && npm install
-```
-### Windows
-
-Check out this issue https://github.com/electron-userland/electron-prebuilt/issues/76#issuecomment-191259022 if you are having problems
-
-## Run
+Then
 
 ```bash
 $ npm run dev
 ```
+
+### Windows
+
+Check out this issue https://github.com/electron-userland/electron-prebuilt/issues/76#issuecomment-191259022 if you are having problems
+
+
 
 *Note: requires a node version >= 4 and an npm version >= 2.*
