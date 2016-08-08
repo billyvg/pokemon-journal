@@ -1,7 +1,7 @@
 {
   "name": "pokemon-journal",
   "productName": "PokemonJournal",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "View detailed statistics about your Pokemon inventory (Pokemon Go)",
   "main": "main.js",
   "scripts": {
