@@ -46,14 +46,6 @@ export default class Login extends Component {
     authStore.password = e.target.value;
   }
 
-  handleLocation(e, value) {
-    const {
-      authStore,
-    } = this.props;
-
-    authStore.locationString = e.target.value;
-  }
-
   render() {
     const {
       authStore,
@@ -98,15 +90,6 @@ export default class Login extends Component {
             floatingLabelText="Password"
             type="password"
             name="password"
-          />
-        </div>
-
-        <div>
-          <TextField
-            hintText="Location"
-            onChange={this.handleLocation}
-            value={authStore.locationString}
-            floatingLabelText="Location"
           />
         </div>
 

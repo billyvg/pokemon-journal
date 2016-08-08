@@ -21,10 +21,8 @@ class Auth {
   @observable provider = 'google';
   @observable username;
   @observable sort = 'recent';
-  @observable locationString;
   @observable password;
   @observable authed = false;
-  @observable location;
   @observable _pokemon = [];
 
   constructor() {
@@ -32,23 +30,9 @@ class Auth {
     storage.get('pokemonJournal', (err, data) => {
       this.username = data.username;
       this.provider = data.provider || this.provider;
-      this.locationString = data.locationString;
     });
 
     this.getLocation();
-  }
-
-  @action
-  getLocation() {
-    return new Promise((resolve, reject) => {
-      navigator.geolocation.getCurrentPosition((loc) => {
-        this.location = loc.coords;
-        resolve(loc);
-      }, (err) => {
-        console.error('Error getting location', err);
-        reject(err);
-      });
-    });
   }
 
   @computed
@@ -75,7 +59,6 @@ class Auth {
     if (this.username && this.password && this.provider) {
       const {
         username,
-        locationString,
         provider,
       } = this;
       const authLib = this.provider === 'google' ? new GoogleLogin() : new PTCLogin();
@@ -83,40 +66,20 @@ class Auth {
       storage.set('pokemonJournal', {
         username,
         provider,
-        locationString,
       });
 
-      if (!this.location && !this.locationString) {
-        this.getLocation();
-      } else {
-        let location;
-
-        if (this.location) {
-          location = {
-            type: 'coords',
-            coords: this.location,
-          };
-        } else if (this.locationString) {
-          location = {
-            type: 'name',
-            name: this.locationString,
-          };
-        }
-
-
-        return authLib.login(this.username, this.password).then((token) => {
-          this.client.setAuthInfo(this.provider, token);
-          this.client.setPosition(0, 0);
-          this.authed = token;
-          return this.client.init();
-        }).catch((err) => {
-          console.error('Error logging in ', err);
-        });
-      }
-    } else {
-      console.error('Cant login, missing authentication details.');
-      return new Promise((resolve, reject) => reject('Unable to login'));
+      return authLib.login(this.username, this.password).then((token) => {
+        this.client.setAuthInfo(this.provider, token);
+        this.client.setPosition(0, 0);
+        this.authed = token;
+        return this.client.init();
+      }).catch((err) => {
+        console.error('Error logging in ', err);
+      });
     }
+
+    console.error('Cant login, missing authentication details.');
+    return new Promise((resolve, reject) => reject('Unable to login'));
   }
 
   @action getPokemon() {
