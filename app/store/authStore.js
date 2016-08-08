@@ -31,8 +31,6 @@ class Auth {
       this.username = data.username;
       this.provider = data.provider || this.provider;
     });
-
-    this.getLocation();
   }
 
   @computed
