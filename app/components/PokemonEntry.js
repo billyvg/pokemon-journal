@@ -37,7 +37,7 @@ export default class PokemonEntry extends Component {
             CP
           </span>
           <span>
-            {pokemon.cp} ({percentMaxCp}%)
+            {pokemon.cp} ({percentMaxCp}%) {pokemon.favorite ? '\u2605' : ''}
           </span>
         </div>
         <Avatar
