@@ -29,6 +29,7 @@ export default class PokemonEntry extends Component {
     } = pokemon;
 
     const percentMaxCp = Math.floor(((currCP - minCP) / (maxCP - minCP)) * 100);
+    const percentMaxIv = Math.floor(((pokemon.individual_attack || 0) + (pokemon.individual_defense || 0) + (pokemon.individual_stamina || 0)) / 45 * 100);
 
     return (
       <div className={styles.container}>
@@ -53,7 +54,7 @@ export default class PokemonEntry extends Component {
             IV
           </span>
           <span>
-            {pokemon.individual_attack || 0}/{pokemon.individual_defense || 0}/{pokemon.individual_stamina || 0}
+            {pokemon.individual_attack || 0}/{pokemon.individual_defense || 0}/{pokemon.individual_stamina || 0} ({percentMaxIv}%)
           </span>
         </div>
       </div>
