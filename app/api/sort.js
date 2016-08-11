@@ -40,13 +40,16 @@ export default {
   },
 
   name(items) {
-      return _.sortBy(items, (v) => {
-          if (typeof v.nickname !== "undefined" && v.nickname !== "") {
-              return v.nickname;
-          } else {
-              return v.meta.name;
-          }
-      });
+    return _.sortBy(
+      _.sortBy(items, (v) => -v.cp),
+      (v) => {
+        if (typeof v.nickname !== "undefined" && v.nickname !== "") {
+          return v.nickname;
+        } else {
+          return v.meta.name;
+        }
+      }
+    );
   },
 
 };
