@@ -34,4 +34,8 @@ export default {
       (v) => v.pokemon_id
     );
   },
+
+  cp(items) {
+    return _.sortBy(items, (v) => -v.cp);
+  },
 };
