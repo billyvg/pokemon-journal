@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 
 import Avatar from 'material-ui/Avatar';
 import { Card, CardHeader, CardTitle, CardText, CardMedia } from 'material-ui/Card';
+import { getMoveName } from '../api/moves';
 
 import {
   inject,
@@ -12,12 +13,12 @@ import autobind from 'autobind-decorator';
 
 import styles from './PokemonEntry.css';
 
-
 @inject('authStore')
 @autobind
 @observer
 export default class PokemonEntry extends Component {
   render() {
+
     const {
       pokemon,
     } = this.props;
@@ -30,6 +31,9 @@ export default class PokemonEntry extends Component {
 
     const percentMaxCp = Math.floor(((currCP - minCP) / (maxCP - minCP)) * 100);
     const percentMaxIv = Math.floor(((pokemon.individual_attack || 0) + (pokemon.individual_defense || 0) + (pokemon.individual_stamina || 0)) / 45 * 100);
+
+    const move1 = getMoveName(pokemon.move_1).split('_FAST').join('+').split('_').join('');
+    const move2 = getMoveName(pokemon.move_2).split('_FAST').join('+').split('_').join('');
 
     return (
       <div className={styles.container}>
@@ -57,7 +61,24 @@ export default class PokemonEntry extends Component {
             {pokemon.individual_attack || 0}/{pokemon.individual_defense || 0}/{pokemon.individual_stamina || 0} ({percentMaxIv}%)
           </span>
         </div>
+        <div>
+          <span className={styles.label}>
+            Fast Move:
+          </span>
+          <span>
+            {move1}
+          </span>
+        </div>
+        <div>
+          <span className={style.label}>
+            Charge Move:
+          </span>
+          <span>
+            {move2}
+          </span>
+        </div>
       </div>
     );
   }
 }
+
