@@ -57,6 +57,8 @@ export default class Journal extends Component {
               <MenuItem value="recent" primaryText="Recent" />
               <MenuItem value="id" primaryText="Pokemon ID" />
               <MenuItem value="iv" primaryText="IV" />
+              <MenuItem value="cp" primaryText="CP" />
+              <MenuItem value="name" primaryText="Name" />
             </DropDownMenu>
           </ToolbarGroup>
         </Toolbar>
