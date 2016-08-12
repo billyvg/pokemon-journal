@@ -184,7 +184,7 @@ const moves = [
 export function getMoveName(id) {
   for(var i = 0; i < moves.length; i++) {
     if( moves[i].id == id )
-      return moves[i].name;
+      return moves[i].name.split('_FAST').join('+').split('_').join('');
   }
 
   return "N/A";

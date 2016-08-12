@@ -32,8 +32,8 @@ export default class PokemonEntry extends Component {
     const percentMaxCp = Math.floor(((currCP - minCP) / (maxCP - minCP)) * 100);
     const percentMaxIv = Math.floor(((pokemon.individual_attack || 0) + (pokemon.individual_defense || 0) + (pokemon.individual_stamina || 0)) / 45 * 100);
 
-    const move1 = getMoveName(pokemon.move_1).split('_FAST').join('+').split('_').join('');
-    const move2 = getMoveName(pokemon.move_2).split('_FAST').join('+').split('_').join('');
+    const move1 = getMoveName(pokemon.move_1);
+    const move2 = getMoveName(pokemon.move_2);
 
     return (
       <div className={styles.container}>
@@ -70,7 +70,7 @@ export default class PokemonEntry extends Component {
           </span>
         </div>
         <div>
-          <span className={style.label}>
+          <span className={styles.label}>
             Charge Move:
           </span>
           <span>
