@@ -9,7 +9,7 @@ export function convertIV(id, stam, atk, def, multiplier) {
   const stamina = (BaseStamina + (stam || 0)) * multiplier;
   const attack = (BaseAttack + (atk || 0)) * multiplier;
   const defense = (BaseDefense + (def || 0)) * multiplier;
-  return Math.floor(Math.pow(stamina, 0.5) * attack * Math.pow(defense, 0.5) / 10);
+  return Math.floor(Math.pow(stamina, 0.5) * attack * Math.pow(defense, 0.5)) / 10;
 }
 
 export function calculateCP(mon) {
