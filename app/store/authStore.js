@@ -68,7 +68,7 @@ class Auth {
 
       return authLib.login(this.username, this.password).then((token) => {
         this.client.setAuthInfo(this.provider, token);
-        this.client.setPosition(0, 0);
+        // this.client.setPosition(0, 0);
         this.authed = token;
         return this.client.init();
       }).catch((err) => {
