@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 
 import Avatar from 'material-ui/Avatar';
+import Popover from 'material-ui/Popover';
+import Menu from 'material-ui/Menu';
+import MenuItem from 'material-ui/MenuItem';
 import { Card, CardHeader, CardTitle, CardText, CardMedia } from 'material-ui/Card';
 import { getMoveName } from '../api/moves';
 
@@ -17,8 +20,40 @@ import styles from './PokemonEntry.css';
 @autobind
 @observer
 export default class PokemonEntry extends Component {
-  render() {
+  constructor(props) {
+    super(props);
 
+    this.state = {
+      open: false,
+    };
+  }
+
+  handleTouchTap = (event) => {
+    // This prevents ghost click.
+    event.preventDefault();
+   
+    this.setState({
+      open: true,
+      anchorEl: event.currentTarget,
+      });
+  };
+
+  handleTransfer = (id) => {
+    const {
+      authStore,
+    } = this.props;
+
+    authStore.transferPokemon(id);
+    this.handleRequestClose();
+  }
+
+  handleRequestClose = () => {
+    this.setState({
+      open: false,
+    });
+  };
+
+  render() {
     const {
       pokemon,
     } = this.props;
@@ -49,6 +84,7 @@ export default class PokemonEntry extends Component {
           backgroundColor="white"
           size={50}
           src={`./images/${pokemon.meta.num}.png`}
+          onTouchTap={this.handleTouchTap}
         />
         <div>
           {pokemon.meta.name} {pokemon.nickname ? `(${pokemon.nickname})` : ''}
@@ -77,6 +113,17 @@ export default class PokemonEntry extends Component {
             {move2}
           </span>
         </div>
+        <Popover
+          open={this.state.open}
+          anchorEl={this.state.anchorEl}
+          anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
+          targetOrigin={{horizontal: 'left', vertical: 'top'}}
+          onRequestClose={this.handleRequestClose}
+        >
+          <Menu>
+            <MenuItem primaryText="Transfer" onClick={() => this.handleTransfer(pokemon.id)} />
+          </Menu>
+        </Popover>
       </div>
     );
   }

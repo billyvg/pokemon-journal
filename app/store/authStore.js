@@ -103,6 +103,20 @@ class Auth {
       }
     }).catch((err) => {
       console.error('Error retrieving inventory');
+      console.error(err);
+    });
+  }
+
+  @action transferPokemon(pokemonId) {
+    return this.login().then(
+      () => {
+      this.client.releasePokemon(pokemonId);
+    }).then(
+      () => { 
+      this.getPokemon(); 
+    }).catch((err) => {
+      console.error('Error release pokemon');
+      console.error(err);
     });
   }
 }
