@@ -47,16 +47,12 @@ export default class PokemonEntry extends Component {
     this.handleRequestClose();
   };
 
-  toggleFavorite = (pokemon) => {
+  toggleFavorite = (id, isFavorite) => {
     const {
       authStore,
     } = this.props;
 
-    if( pokemon.favorite ) {
-      authStore.toggleFavoritePokemon(pokemon.id, false);
-    } else {
-      authStore.toggleFavoritePokemon(pokemon.id, true);
-    }
+    authStore.toggleFavoritePokemon(id, isFavorite);
     this.handleRequestClose();
   };
 
@@ -82,6 +78,9 @@ export default class PokemonEntry extends Component {
 
     const move1 = getMoveName(pokemon.move_1);
     const move2 = getMoveName(pokemon.move_2);
+
+    const favoriteText = (pokemon.favorite == 1) ? "Unfavorite" : "Favorite";
+    const setFavorite = (pokemon.favorite == 1) ? false : true;
 
     return (
       <div className={styles.container}>
@@ -135,7 +134,7 @@ export default class PokemonEntry extends Component {
         >
           <Menu>
             <MenuItem primaryText="Transfer" onClick={() => this.handleTransfer(pokemon.id)} />
-            <MenuItem primaryText="Favorite" onClick={() => this.toggleFavorite(pokemon)} />
+            <MenuItem primaryText={favoriteText} onClick={() => this.toggleFavorite(pokemon.id, setFavorite)} />
           </Menu>
         </Popover>
       </div>
