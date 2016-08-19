@@ -45,7 +45,20 @@ export default class PokemonEntry extends Component {
 
     authStore.transferPokemon(id);
     this.handleRequestClose();
-  }
+  };
+
+  toggleFavorite = (pokemon) => {
+    const {
+      authStore,
+    } = this.props;
+
+    if( pokemon.favorite ) {
+      authStore.toggleFavoritePokemon(pokemon.id, false);
+    } else {
+      authStore.toggleFavoritePokemon(pokemon.id, true);
+    }
+    this.handleRequestClose();
+  };
 
   handleRequestClose = () => {
     this.setState({
@@ -122,6 +135,7 @@ export default class PokemonEntry extends Component {
         >
           <Menu>
             <MenuItem primaryText="Transfer" onClick={() => this.handleTransfer(pokemon.id)} />
+            <MenuItem primaryText="Favorite" onClick={() => this.toggleFavorite(pokemon)} />
           </Menu>
         </Popover>
       </div>

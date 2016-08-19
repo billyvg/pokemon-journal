@@ -119,6 +119,19 @@ class Auth {
       console.error(err);
     });
   }
+
+  @action toggleFavoritePokemon(pokemonId, favorite) {
+    return this.login().then(
+      () => {
+      this.client.setFavoritePokemon(pokemonId, favorite);
+    }).then(
+      () => {
+      this.getPokemon();
+    }).catch((err) => {
+      console.error('Error toggle favorite pokemon');
+      console.error(err);
+    });
+  }
 }
 
 const authStore = new Auth();
