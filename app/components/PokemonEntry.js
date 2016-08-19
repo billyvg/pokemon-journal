@@ -56,6 +56,24 @@ export default class PokemonEntry extends Component {
     this.handleRequestClose();
   };
 
+  handlePowerUp = (id) => {
+    const {
+      authStore,
+    } = this.props;
+    
+    authStore.powerUpPokemon(id);
+    this.handleRequestClose();
+  };
+
+  handleEvolve = (id) => {
+    const {
+      authStore,
+    } = this.props;
+
+    authStore.evolvePokemon(id);
+    this.handleRequestClose();
+  };
+  
   handleRequestClose = () => {
     this.setState({
       open: false,
@@ -113,7 +131,7 @@ export default class PokemonEntry extends Component {
           <span className={styles.label}>
             Fast Move:
           </span>
-          <span>
+          <span className={styles.value}>
             {move1}
           </span>
         </div>
@@ -121,7 +139,7 @@ export default class PokemonEntry extends Component {
           <span className={styles.label}>
             Charge Move:
           </span>
-          <span>
+          <span className={styles.value}>
             {move2}
           </span>
         </div>
@@ -135,6 +153,8 @@ export default class PokemonEntry extends Component {
           <Menu>
             <MenuItem primaryText="Transfer" onClick={() => this.handleTransfer(pokemon.id)} />
             <MenuItem primaryText={favoriteText} onClick={() => this.toggleFavorite(pokemon.id, setFavorite)} />
+            <MenuItem primaryText="Power Up" onClick={() => this.handlePowerUp(pokemon.id)} />
+            <MenuItem primaryText="Evolve" onClick={() => this.handleEvolve(pokemon.id)} />
           </Menu>
         </Popover>
       </div>

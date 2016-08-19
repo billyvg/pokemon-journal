@@ -16,6 +16,7 @@ import POKEMON_META from '../api/pokemons';
 import Sort from '../api/sort';
 import { calculateCP } from '../api/calculations';
 
+const pogobuf = require('pogobuf');
 
 class Auth {
   @observable provider = 'google';
@@ -96,7 +97,6 @@ class Auth {
             meta,
           };
         });
-
         // const fs = require('fs');
         // fs.writeFileSync('response.json', JSON.stringify(filtered, null, 2));
         this._pokemon = filtered;
@@ -129,6 +129,32 @@ class Auth {
       this.getPokemon();
     }).catch((err) => {
       console.error('Error toggle favorite pokemon');
+      console.error(err);
+    });
+  }
+
+  @action powerUpPokemon(pokemonId) {
+    return this.login().then(
+      () => {
+      this.client.upgradePokemon(pokemonId);
+    }).then(
+      () => {
+      this.getPokemon(); 
+    }).catch((err) => {
+      console.error('Error power up pokemon');
+      console.error(err);
+    });
+  }
+
+  @action evolvePokemon(pokemonId) {
+    return this.login().then(
+      () => {
+      this.client.evolvePokemon(pokemonId);
+    }).then(
+      () => {
+      this.getPokemon(); 
+    }).catch((err) => {
+      console.error('Error evolve pokemon');
       console.error(err);
     });
   }
