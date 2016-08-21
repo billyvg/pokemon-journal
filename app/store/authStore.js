@@ -25,6 +25,8 @@ class Auth {
   @observable authed = false;
   @observable _pokemon = [];
   @observable hasSavedData = false;
+  @observable notification = {};
+  @observable loading = false;
 
   constructor() {
     this.client = new Client();
@@ -78,9 +80,18 @@ class Auth {
         this.authed = token;
         return this.client.init();
       }).catch((err) => {
+        this.setNotification({
+          message: `Error logging in: ${err}`,
+          type: 'error',
+        });
         console.error('Error logging in ', err);
       });
     }
+
+    this.setNotification({
+      message: 'Missing login details',
+      type: 'error',
+    });
 
     console.error('Cant login, missing authentication details.');
     return new Promise((resolve, reject) => reject('Unable to login'));
@@ -88,15 +99,16 @@ class Auth {
 
   savedFileCheck = action('savedFileCheck', () => {
     this.hasSavedData = fs.existsSync(FILENAME);
-    console.log(this.hasSavedData);
   });
 
   loadData = action('loadExampleData', () => {
     this.loading = true;
     if (fs.existsSync(FILENAME)) {
-      this._pokemon = JSON.parse(fs.readFileSync(FILENAME));
+      requestAnimationFrame(() => {
+        this._pokemon = JSON.parse(fs.readFileSync(FILENAME));
+        this.loading = false;
+      });
     }
-    this.loading = false;
   });
 
   saveData = action('saveData', () => {
@@ -128,9 +140,23 @@ class Auth {
     })
     .catch((err) => {
       this.loading = false;
-      this.error = 'Error retrieving inventory';
+      this.setNotification({
+        message: `Error fetching inventory: ${err}`,
+        type: 'error',
+      });
       console.error('Error retrieving inventory', err);
     });
+  });
+
+  setNotification = action('setNotification', ({ message, type }) => {
+    this.notification = {
+      message,
+      type,
+    };
+  });
+
+  clearNotification = action('clearNotification', () => {
+    this.notifcation = {};
   });
 }
 
