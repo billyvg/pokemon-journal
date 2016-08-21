@@ -1,6 +1,5 @@
-import _ from 'lodash';
+import fs from 'fs';
 import storage from 'electron-json-storage';
-import autobind from 'autobind-decorator';
 import {
   observable,
   action,
@@ -16,6 +15,7 @@ import POKEMON_META from '../api/pokemons';
 import Sort from '../api/sort';
 import { calculateCP } from '../api/calculations';
 
+const FILENAME = 'response.json';
 
 class Auth {
   @observable provider = 'google';
@@ -24,6 +24,7 @@ class Auth {
   @observable password;
   @observable authed = false;
   @observable _pokemon = [];
+  @observable hasSavedData = false;
 
   constructor() {
     this.client = new Client();
@@ -41,6 +42,11 @@ class Auth {
     }
 
     return Sort.recent(this._pokemon.slice());
+  }
+
+  @computed
+  get journalVisible() {
+    return this.authed || this.pokemon.length;
   }
 
   @action
@@ -80,14 +86,33 @@ class Auth {
     return new Promise((resolve, reject) => reject('Unable to login'));
   }
 
-  @action getPokemon() {
+  savedFileCheck = action('savedFileCheck', () => {
+    this.hasSavedData = fs.existsSync(FILENAME);
+    console.log(this.hasSavedData);
+  });
+
+  loadData = action('loadExampleData', () => {
+    this.loading = true;
+    if (fs.existsSync(FILENAME)) {
+      this._pokemon = JSON.parse(fs.readFileSync(FILENAME));
+    }
+    this.loading = false;
+  });
+
+  saveData = action('saveData', () => {
+    fs.writeFileSync(FILENAME, JSON.stringify(this._pokemon, null, 2));
+  });
+
+  getPokemon = action('getPokemon', () => {
+    this.loading = true;
     return this.login().then(
       () => this.client.getInventory(0)
-    ).then((inventory) => {
+    )
+    .then((inventory) => {
       if (inventory.inventory_delta && inventory.inventory_delta.inventory_items) {
-        const filtered = inventory.inventory_delta.inventory_items.filter((item) => {
-          return item.inventory_item_data.pokemon_data && item.inventory_item_data.pokemon_data.pokemon_id;
-        }).map((item) => {
+        const filtered = inventory.inventory_delta.inventory_items.filter((item) =>
+          item.inventory_item_data.pokemon_data && item.inventory_item_data.pokemon_data.pokemon_id
+        ).map((item) => {
           const pokemon = item.inventory_item_data.pokemon_data;
           const meta = POKEMON_META[pokemon.pokemon_id - 1];
           return {
@@ -97,14 +122,16 @@ class Auth {
           };
         });
 
-        // const fs = require('fs');
-        // fs.writeFileSync('response.json', JSON.stringify(filtered, null, 2));
         this._pokemon = filtered;
       }
-    }).catch((err) => {
-      console.error('Error retrieving inventory');
+      this.loading = false;
+    })
+    .catch((err) => {
+      this.loading = false;
+      this.error = 'Error retrieving inventory';
+      console.error('Error retrieving inventory', err);
     });
-  }
+  });
 }
 
 const authStore = new Auth();
