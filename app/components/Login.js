@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import SelectField from 'material-ui/SelectField';
@@ -10,10 +9,18 @@ import {
   inject,
 } from 'mobx-react';
 
+import style from './Login.css';
+
+export type Props = {
+  authStore: Object;
+};
+
 @inject('authStore')
 @autobind
 @observer
 export default class Login extends Component {
+  props: Props;
+
   login(e) {
     const {
       authStore,
@@ -53,6 +60,7 @@ export default class Login extends Component {
 
     return (
       <form
+        className={style.container}
         onSubmit={this.login}
       >
         <div>

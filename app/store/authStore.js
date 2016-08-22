@@ -1,6 +1,5 @@
-import _ from 'lodash';
+import fs from 'fs';
 import storage from 'electron-json-storage';
-import autobind from 'autobind-decorator';
 import {
   observable,
   action,
@@ -17,6 +16,7 @@ import Sort from '../api/sort';
 import { calculateCP } from '../api/calculations';
 
 const pogobuf = require('pogobuf');
+const FILENAME = 'response.json';
 
 class Auth {
   @observable provider = 'google';
@@ -25,6 +25,9 @@ class Auth {
   @observable password;
   @observable authed = false;
   @observable _pokemon = [];
+  @observable hasSavedData = false;
+  @observable notification = {};
+  @observable loading = false;
 
   constructor() {
     this.client = new Client();
@@ -42,6 +45,11 @@ class Auth {
     }
 
     return Sort.recent(this._pokemon.slice());
+  }
+
+  @computed
+  get journalVisible() {
+    return this.authed || this.pokemon.length;
   }
 
   @action
@@ -73,22 +81,51 @@ class Auth {
         this.authed = token;
         return this.client.init();
       }).catch((err) => {
+        this.setNotification({
+          message: `Error logging in: ${err}`,
+          type: 'error',
+        });
         console.error('Error logging in ', err);
       });
     }
+
+    this.setNotification({
+      message: 'Missing login details',
+      type: 'error',
+    });
 
     console.error('Cant login, missing authentication details.');
     return new Promise((resolve, reject) => reject('Unable to login'));
   }
 
-  @action getPokemon() {
+  savedFileCheck = action('savedFileCheck', () => {
+    this.hasSavedData = fs.existsSync(FILENAME);
+  });
+
+  loadData = action('loadExampleData', () => {
+    this.loading = true;
+    if (fs.existsSync(FILENAME)) {
+      requestAnimationFrame(() => {
+        this._pokemon = JSON.parse(fs.readFileSync(FILENAME));
+        this.loading = false;
+      });
+    }
+  });
+
+  saveData = action('saveData', () => {
+    fs.writeFileSync(FILENAME, JSON.stringify(this._pokemon, null, 2));
+  });
+
+  getPokemon = action('getPokemon', () => {
+    this.loading = true;
     return this.login().then(
       () => this.client.getInventory(0)
-    ).then((inventory) => {
+    )
+    .then((inventory) => {
       if (inventory.inventory_delta && inventory.inventory_delta.inventory_items) {
-        const filtered = inventory.inventory_delta.inventory_items.filter((item) => {
-          return item.inventory_item_data.pokemon_data && item.inventory_item_data.pokemon_data.pokemon_id;
-        }).map((item) => {
+        const filtered = inventory.inventory_delta.inventory_items.filter((item) =>
+          item.inventory_item_data.pokemon_data && item.inventory_item_data.pokemon_data.pokemon_id
+        ).map((item) => {
           const pokemon = item.inventory_item_data.pokemon_data;
           const meta = POKEMON_META[pokemon.pokemon_id - 1];
           return {
@@ -97,15 +134,31 @@ class Auth {
             meta,
           };
         });
-        // const fs = require('fs');
-        // fs.writeFileSync('response.json', JSON.stringify(filtered, null, 2));
         this._pokemon = filtered;
       }
-    }).catch((err) => {
-      console.error('Error retrieving inventory');
+      this.loading = false;
+    })
+    .catch((err) => {
+      this.loading = false;
+      this.setNotification({
+        message: `Error fetching inventory: ${err}`,
+        type: 'error',
+      });
+      console.error('Error retrieving inventory', err);
       console.error(err);
     });
-  }
+  });
+
+  setNotification = action('setNotification', ({ message, type }) => {
+    this.notification = {
+      message,
+      type,
+    };
+  });
+  
+  clearNotification = action('clearNotification', () => {
+    this.notifcation = {};
+  });
 
   @action transferPokemon(pokemonId) {
     return this.login().then(
