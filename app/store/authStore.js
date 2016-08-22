@@ -25,6 +25,8 @@ class Auth {
   @observable password;
   @observable authed = false;
   @observable _pokemon = [];
+  @observable _pokemon_settings = [];
+  @observable _candies = [];
   @observable hasSavedData = false;
   @observable notification = {};
   @observable loading = false;
@@ -45,6 +47,16 @@ class Auth {
     }
 
     return Sort.recent(this._pokemon.slice());
+  }
+
+  @computed
+  get pokemon_settings() {
+    return this._pokemon_settings;
+  }
+
+  @computed
+  get candies() {
+    return this._candies;
   }
 
   @computed
@@ -122,6 +134,11 @@ class Auth {
       () => this.client.getInventory(0)
     )
     .then((inventory) => {
+      var temp_inventories = pogobuf.Utils.splitInventory(inventory);
+      this._candies = temp_inventories.candies;
+      return inventory;
+    })
+    .then((inventory) => {
       if (inventory.inventory_delta && inventory.inventory_delta.inventory_items) {
         const filtered = inventory.inventory_delta.inventory_items.filter((item) =>
           item.inventory_item_data.pokemon_data && item.inventory_item_data.pokemon_data.pokemon_id
@@ -136,6 +153,12 @@ class Auth {
         });
         this._pokemon = filtered;
       }
+    })
+    .then(
+      () => this.client.downloadItemTemplates()
+    ).then((templates) => {
+      templates = pogobuf.Utils.splitItemTemplates(templates);
+      this._pokemon_settings = templates.pokemon_settings; 
       this.loading = false;
     })
     .catch((err) => {
