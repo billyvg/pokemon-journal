@@ -78,6 +78,7 @@ class Auth {
         this.client.setAuthInfo(this.provider, token);
         this.client.setPosition(0, 0);
         this.authed = token;
+        this.password = '';
         return this.client.init();
       }).catch((err) => {
         this.setNotification({
@@ -96,6 +97,11 @@ class Auth {
     console.error('Cant login, missing authentication details.');
     return new Promise((resolve, reject) => reject('Unable to login'));
   }
+
+  logout = action('logout', () => {
+    this.authed = false;
+    this._pokemon.clear();
+  })
 
   savedFileCheck = action('savedFileCheck', () => {
     this.hasSavedData = fs.existsSync(FILENAME);
