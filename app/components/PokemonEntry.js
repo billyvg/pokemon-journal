@@ -53,6 +53,7 @@ export default class PokemonEntry extends Component {
     } = this.props;
 
     authStore.toggleFavoritePokemon(id, isFavorite);
+    // console.log(authStore.pokemon_settings);
     this.handleRequestClose();
   };
 
@@ -80,9 +81,30 @@ export default class PokemonEntry extends Component {
     });
   };
 
+  getCurrentCandies(pokemon) {
+    const {
+      authStore,
+    } = this.props;
+
+    var pokemon_setting = authStore.pokemon_settings.find(x => x.pokemon_id === pokemon.pokemon_id);
+    var candy_data = authStore.candies.find(x => x.family_id === pokemon_setting.family_id);
+
+    return candy_data.candy;
+  }
+
+  getCandyToEvolve(pokemon) {
+    const {
+      authStore,
+    } = this.props;
+
+    var pokemon_setting = authStore.pokemon_settings.find(x => x.pokemon_id === pokemon.pokemon_id);
+    return (pokemon_setting.candy_to_evolve == 0) ? "-" : pokemon_setting.candy_to_evolve;
+  }
+
   render() {
     const {
       pokemon,
+      authStore,
     } = this.props;
 
     const {
@@ -99,6 +121,9 @@ export default class PokemonEntry extends Component {
 
     const favoriteText = (pokemon.favorite == 1) ? "Unfavorite" : "Favorite";
     const setFavorite = (pokemon.favorite == 1) ? false : true;
+
+    const current_candies = this.getCurrentCandies(pokemon);
+    const evolve_candies = this.getCandyToEvolve(pokemon);
 
     return (
       <div className={styles.container}>
@@ -125,6 +150,14 @@ export default class PokemonEntry extends Component {
           </span>
           <span>
             {pokemon.individual_attack || 0}/{pokemon.individual_defense || 0}/{pokemon.individual_stamina || 0} ({percentMaxIv}%)
+          </span>
+        </div>
+        <div>
+          <span className={styles.label}>
+            Candies: 
+          </span>
+          <span className={styles.value}>
+            {current_candies}/{evolve_candies}
           </span>
         </div>
         <div>
