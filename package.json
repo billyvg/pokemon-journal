@@ -114,7 +114,6 @@
     "font-awesome": "^4.6.3",
     "jsdom": "^9.4.2",
     "lodash": "^4.15.0",
-    "long": "^3.2.0",
     "material-ui": "^0.15.4",
     "mobx": "^2.4.3",
     "mobx-react": "^3.5.5",
