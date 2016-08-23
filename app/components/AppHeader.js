@@ -77,6 +77,7 @@ export default class AppHeader extends Component {
             <MenuItem
               disabled={!authed}
               primaryText="Sign out"
+              onTouchTap={authStore.logout}
             />
           </IconMenu>
         }

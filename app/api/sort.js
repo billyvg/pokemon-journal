@@ -1,13 +1,9 @@
-import Long from 'long';
 import _ from 'lodash';
 
 export default {
   recent(items) {
     return _.reverse(
-      _.sortBy(items, (v) => {
-        const ms = v && v.creation_time_ms;
-        return ms && new Long(ms.low, ms.high, ms.unsigned).toString();
-      })
+      _.sortBy(items, (v) => v && v.creation_time_ms)
     );
   },
 
