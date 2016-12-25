@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 
 import Avatar from 'material-ui/Avatar';
 import { Card, CardHeader, CardTitle, CardText, CardMedia } from 'material-ui/Card';
+import { getMoveName, getFastMoveWithDPS, getLevel } from '../api/moves';
 
 import {
   inject,
@@ -31,6 +32,9 @@ export default class PokemonEntry extends Component {
     const percentMaxCp = Math.floor(((currCP - minCP) / (maxCP - minCP)) * 100);
     const percentMaxIv = Math.floor(((pokemon.individual_attack || 0) + (pokemon.individual_defense || 0) + (pokemon.individual_stamina || 0)) / 45 * 100);
 
+		const move1 = getFastMoveWithDPS(pokemon.move_1, pokemon.meta.type);
+		const move2 = getFastMoveWithDPS(pokemon.move_2, pokemon.meta.type);
+		const level = getLevel(pokemon.cp_multiplier, pokemon.additional_cp_multiplier);
     return (
       <div className={styles.container}>
         <div>
@@ -47,7 +51,7 @@ export default class PokemonEntry extends Component {
           src={`./images/${pokemon.meta.num}.png`}
         />
         <div>
-          {pokemon.meta.name} {pokemon.nickname ? `(${pokemon.nickname})` : ''}
+          {pokemon.meta.name} {pokemon.nickname ? `(${pokemon.nickname})` : ''} Level: {level}
         </div>
         <div>
           <span className={styles.label}>
@@ -57,6 +61,26 @@ export default class PokemonEntry extends Component {
             {pokemon.individual_attack || 0}/{pokemon.individual_defense || 0}/{pokemon.individual_stamina || 0} ({percentMaxIv}%)
           </span>
         </div>
+				<div>
+					<span className={styles.label}>
+						Fast Move:
+					</span>
+					<span>
+						{move1}
+					</span>
+				</div>
+				<div>
+					<span className={styles.label}>
+						Charge Move:
+					</span>
+					<span>
+						{move2}
+					</span>
+				</div>
+				<div>
+					<span className={styles.label}>From Fort:</span>
+					<span>{pokemon.from_fort?'yes':'no'}({pokemon.pokeball})</span>
+				</div>
       </div>
     );
   }
