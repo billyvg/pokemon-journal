@@ -1659,6 +1659,94 @@ const pokemons = [
     "weight": "4.0 kg",
     "candy": "None",
     "egg": "Not in Eggs"
+  },
+	{
+    "id":"172",
+    "num":"172",
+    "name":"Pichu",
+    "img":"http://www.serebii.net/pokemongo/pokemon/172.png",
+    "type": "Electric",
+    "height": "0.3 m",
+    "weight": "2.0 kg",
+    "candy": "25 Pikachu Candy",
+    "egg": "5 km"
+  },
+  {
+    "id":"173",
+    "num":"173",
+    "name":"Cleffa",
+    "img":"http://www.serebii.net/pokemongo/pokemon/173.png",
+    "type": "Fairy",
+    "height": "0.3 m",
+    "weight": "3.0 kg",
+    "candy": "25 Clefairy Candy",
+    "egg": "2 km"
+  },
+  {
+    "id":"174",
+    "num":"174",
+    "name":"Igglybuff",
+    "img":"http://www.serebii.net/pokemongo/pokemon/174.png",
+    "type": "Normal / Fairy",
+    "height": "0.3 m",
+    "weight": "1.0 kg",
+    "candy": "25 Jigglypuff Candy",
+    "egg": "2 km"
+  },
+  {
+    "id":"175",
+    "num":"175",
+    "name":"Togepi",
+    "img":"http://www.serebii.net/pokemongo/pokemon/175.png",
+    "type": "Fairy",
+    "height": "0.3 m",
+    "weight": "1.5 kg",
+    "candy": "50 Togepi Candy",
+    "egg": "5 km"
+  },
+  {
+    "id":"176",
+    "num":"176",
+    "name":"Togetic",
+    "img":"http://www.serebii.net/pokemongo/pokemon/176.png",
+    "type": "Fairy / Flying",
+    "height": "0.6 m",
+    "weight": "3.2 kg",
+    "candy": "None",
+    "egg": "Not in Eggs"
+  },
+  {
+    "id":"238",
+    "num":"238",
+    "name":"Smoochum",
+    "img":"http://www.serebii.net/pokemongo/pokemon/238.png",
+    "type": "Ice / Psychic",
+    "height": "0.4 m",
+    "weight": "6.0 kg",
+    "candy": "25 Jynx Candy",
+    "egg": "10 km"
+  },
+  {
+    "id":"239",
+    "num":"239",
+    "name":"Elekid",
+    "img":"http://www.serebii.net/pokemongo/pokemon/239.png",
+    "type": "Electric",
+    "height": "0.6 m",
+    "weight": "23.5 kg",
+    "candy": "25 Electabuzz Candy",
+    "egg": "10 km"
+  },
+  {
+    "id":"240",
+    "num":"240",
+    "name":"Magby",
+    "img":"http://www.serebii.net/pokemongo/pokemon/240.png",
+    "type": "Fire",
+    "height": "0.7 m",
+    "weight": "21.4 kg",
+    "candy": "25 Magmar Candy",
+    "egg": "10 km"
   }
 ];
 
