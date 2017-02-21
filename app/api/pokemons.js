@@ -173,7 +173,7 @@ const pokemons = [
     "height": "0.30 m",
     "weight": "1.8 kg",
     "candy": "12 Pidgey Candy",
-    "egg": "2 km"
+    "egg": "Not in Eggs"
   },
   {
     "id":"17",
@@ -206,7 +206,7 @@ const pokemons = [
     "height": "0.30 m",
     "weight": "3.5 kg",
     "candy": "25 Rattata Candy",
-    "egg": "2 km"
+    "egg": "Not in Eggs"
   },
   {
     "id":"20",
@@ -250,7 +250,7 @@ const pokemons = [
     "height": "2.01 m",
     "weight": "6.9 kg",
     "candy": "50 Ekans Candy",
-    "egg": "5 km"
+    "egg": "2 km"
   },
   {
     "id":"24",
@@ -272,7 +272,7 @@ const pokemons = [
     "height": "0.41 m",
     "weight": "6.0 kg",
     "candy": "50 Pikachu Candy",
-    "egg": "2 km"
+    "egg": "Not in Eggs"
   },
   {
     "id":"26",
@@ -316,7 +316,7 @@ const pokemons = [
     "height": "0.41 m",
     "weight": "7.0 kg",
     "candy": "25 Nidoran ♀ Candy",
-    "egg": "5 km"
+    "egg": "2 km"
   },
   {
     "id":"30",
@@ -349,7 +349,7 @@ const pokemons = [
     "height": "0.51 m",
     "weight": "9.0 kg",
     "candy": "25 Nidoran♂ Candy",
-    "egg": "5 km"
+    "egg": "2 km"
   },
   {
     "id":"33",
@@ -382,7 +382,7 @@ const pokemons = [
     "height": "0.61 m",
     "weight": "7.5 kg",
     "candy": "50 Clefairy Candy",
-    "egg": "2 km"
+    "egg": "Not in Eggs"
   },
   {
     "id":"36",
@@ -426,7 +426,7 @@ const pokemons = [
     "height": "0.51 m",
     "weight": "5.5 kg",
     "candy": "50 Jigglypuff Candy",
-    "egg": "2 km"
+    "egg": "Not in Eggs"
   },
   {
     "id":"40",
@@ -447,7 +447,7 @@ const pokemons = [
     "type": "Poison / Flying",
     "height": "0.79 m",
     "weight": "7.5 kg",
-    "candy": "50 Zubat Candy",
+    "candy": "25 Zubat Candy",
     "egg": "2 km"
   },
   {
@@ -470,7 +470,7 @@ const pokemons = [
     "height": "0.51 m",
     "weight": "5.4 kg",
     "candy": "25 Oddish Candy",
-    "egg": "5 km"
+    "egg": "2 km"
   },
   {
     "id":"44",
@@ -525,7 +525,7 @@ const pokemons = [
     "height": "0.99 m",
     "weight": "30.0 kg",
     "candy": "50 Venonat Candy",
-    "egg": "5 km"
+    "egg": "2 km"
   },
   {
     "id":"49",
@@ -547,7 +547,7 @@ const pokemons = [
     "height": "0.20 m",
     "weight": "0.8 kg",
     "candy": "50 Diglett Candy",
-    "egg": "5 km"
+    "egg": "2 km"
   },
   {
     "id":"51",
@@ -690,7 +690,7 @@ const pokemons = [
     "height": "0.89 m",
     "weight": "19.5 kg",
     "candy": "25 Abra Candy",
-    "egg": "5 km"
+    "egg": "2 km"
   },
   {
     "id":"64",
@@ -723,7 +723,7 @@ const pokemons = [
     "height": "0.79 m",
     "weight": "19.5 kg",
     "candy": "25 Machop Candy",
-    "egg": "5 km"
+    "egg": "2 km"
   },
   {
     "id":"67",
@@ -756,7 +756,7 @@ const pokemons = [
     "height": "0.71 m",
     "weight": "4.0 kg",
     "candy": "25 Bellsprout Candy",
-    "egg": "5 km"
+    "egg": "2 km"
   },
   {
     "id":"70",
@@ -866,7 +866,7 @@ const pokemons = [
     "height": "1.19 m",
     "weight": "36.0 kg",
     "candy": "50 Slowpoke Candy",
-    "egg": "5 km"
+    "egg": "2 km"
   },
   {
     "id":"80",
@@ -884,7 +884,7 @@ const pokemons = [
     "num":"081",
     "name":"Magnemite",
     "img":"http://www.serebii.net/pokemongo/pokemon/081.png",
-    "type": "Electric",
+    "type": "Electric / Steel",
     "height": "0.30 m",
     "weight": "6.0 kg",
     "candy": "50 Magnemite Candy",
@@ -895,7 +895,7 @@ const pokemons = [
     "num":"082",
     "name":"Magneton",
     "img":"http://www.serebii.net/pokemongo/pokemon/082.png",
-    "type": "Electric",
+    "type": "Electric / Steel",
     "height": "0.99 m",
     "weight": "60.0 kg",
     "candy": "None",
@@ -910,7 +910,7 @@ const pokemons = [
     "height": "0.79 m",
     "weight": "15.0 kg",
     "candy": "None",
-    "egg": "5 km"
+    "egg": "Not in Eggs"
   },
   {
     "id":"84",
@@ -1009,7 +1009,7 @@ const pokemons = [
     "height": "1.30 m",
     "weight": "0.1 kg",
     "candy": "25 Gastly Candy",
-    "egg": "5 km"
+    "egg": "2 km"
   },
   {
     "id":"93",
@@ -1042,7 +1042,7 @@ const pokemons = [
     "height": "8.79 m",
     "weight": "210.0 kg",
     "candy": "None",
-    "egg": "10 km"
+    "egg": "5 km"
   },
   {
     "id":"96",
@@ -1075,7 +1075,7 @@ const pokemons = [
     "height": "0.41 m",
     "weight": "6.5 kg",
     "candy": "50 Krabby Candy",
-    "egg": "5 km"
+    "egg": "2 km"
   },
   {
     "id":"99",
@@ -1119,7 +1119,7 @@ const pokemons = [
     "height": "0.41 m",
     "weight": "2.5 kg",
     "candy": "50 Exeggcute Candy",
-    "egg": "5 km"
+    "egg": "2 km"
   },
   {
     "id":"103",
@@ -1262,7 +1262,7 @@ const pokemons = [
     "height": "2.21 m",
     "weight": "80.0 kg",
     "candy": "None",
-    "egg": "5 km"
+    "egg": "Not in Eggs"
   },
   {
     "id":"116",
@@ -1295,7 +1295,7 @@ const pokemons = [
     "height": "0.61 m",
     "weight": "15.0 kg",
     "candy": "50 Goldeen Candy",
-    "egg": "5 km"
+    "egg": "2 km"
   },
   {
     "id":"119",
@@ -1339,7 +1339,7 @@ const pokemons = [
     "height": "1.30 m",
     "weight": "54.5 kg",
     "candy": "None",
-    "egg": "10 km"
+    "egg": "Not in Eggs"
   },
   {
     "id":"123",
@@ -1350,7 +1350,7 @@ const pokemons = [
     "height": "1.50 m",
     "weight": "56.0 kg",
     "candy": "None",
-    "egg": "10 km"
+    "egg": "5 km"
   },
   {
     "id":"124",
@@ -1361,7 +1361,7 @@ const pokemons = [
     "height": "1.40 m",
     "weight": "40.6 kg",
     "candy": "None",
-    "egg": "10 km"
+    "egg": "Not in Eggs"
   },
   {
     "id":"125",
@@ -1372,7 +1372,7 @@ const pokemons = [
     "height": "1.09 m",
     "weight": "30.0 kg",
     "candy": "None",
-    "egg": "10 km"
+    "egg": "Not in Eggs"
   },
   {
     "id":"126",
@@ -1383,7 +1383,7 @@ const pokemons = [
     "height": "1.30 m",
     "weight": "44.5 kg",
     "candy": "None",
-    "egg": "10 km"
+    "egg": "Not in Eggs"
   },
   {
     "id":"127",
@@ -1394,7 +1394,7 @@ const pokemons = [
     "height": "1.50 m",
     "weight": "55.0 kg",
     "candy": "None",
-    "egg": "10 km"
+    "egg": "5 km"
   },
   {
     "id":"128",
@@ -1405,7 +1405,7 @@ const pokemons = [
     "height": "1.40 m",
     "weight": "88.4 kg",
     "candy": "None",
-    "egg": "5 km"
+    "egg": "Not in Eggs"
   },
   {
     "id":"129",
@@ -1460,7 +1460,7 @@ const pokemons = [
     "height": "0.30 m",
     "weight": "6.5 kg",
     "candy": "25 Eevee Candy (Evolution decided at random. Or, for first evolution, rename Eevee: Rainer => Vaporeon, Sparky => Jolteon, Pyro => Flareon)",
-    "egg": "10 km"
+    "egg": "5 km"
   },
   {
     "id":"134",
@@ -1661,6 +1661,226 @@ const pokemons = [
     "egg": "Not in Eggs"
   },
 	{
+    "id":"152",
+    "num":"152",
+    "name":"Chikorita",
+    "img":"http://www.serebii.net/pokemongo/pokemon/152.png",
+    "type": "Grass",
+    "height": ".89 m",
+    "weight": "6.4 kg",
+    "candy": "25 Chikorita Candy",
+    "egg": "2 km"
+  },
+	{
+    "id":"153",
+    "num":"153",
+    "name":"Bayleef",
+    "img":"http://www.serebii.net/pokemongo/pokemon/153.png",
+    "type": "Grass",
+    "height": "1.19 m",
+    "weight": "15.8 kg",
+    "candy": "100 Chikorita Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"154",
+    "num":"154",
+    "name":"Meganium",
+    "img":"http://www.serebii.net/pokemongo/pokemon/154.png",
+    "type": "Grass",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"155",
+    "num":"155",
+    "name":"Cyndaquil",
+    "img":"http://www.serebii.net/pokemongo/pokemon/155.png",
+    "type": "Fire",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"156",
+    "num":"156",
+    "name":"Quilava",
+    "img":"http://www.serebii.net/pokemongo/pokemon/156.png",
+    "type": "Fire",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"157",
+    "num":"157",
+    "name":"Typhlosion",
+    "img":"http://www.serebii.net/pokemongo/pokemon/157.png",
+    "type": "Fire",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"158",
+    "num":"158",
+    "name":"Totodile",
+    "img":"http://www.serebii.net/pokemongo/pokemon/158.png",
+    "type": "Water",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"159",
+    "num":"159",
+    "name":"Croconaw",
+    "img":"http://www.serebii.net/pokemongo/pokemon/159.png",
+    "type": "Water",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"160",
+    "num":"160",
+    "name":"Feraligatr",
+    "img":"http://www.serebii.net/pokemongo/pokemon/160.png",
+    "type": "Water",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"161",
+    "num":"161",
+    "name":"Sentret",
+    "img":"http://www.serebii.net/pokemongo/pokemon/161.png",
+    "type": "Normal",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"162",
+    "num":"162",
+    "name":"Furret",
+    "img":"http://www.serebii.net/pokemongo/pokemon/162.png",
+    "type": "Normal",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"163",
+    "num":"163",
+    "name":"Hoothoot",
+    "img":"http://www.serebii.net/pokemongo/pokemon/163.png",
+    "type": "Normal / Flying",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"164",
+    "num":"164",
+    "name":"Noctowl",
+    "img":"http://www.serebii.net/pokemongo/pokemon/164.png",
+    "type": "Normal / Flying",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"165",
+    "num":"165",
+    "name":"Ledyba",
+    "img":"http://www.serebii.net/pokemongo/pokemon/165.png",
+    "type": "Bug / Flying",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"166",
+    "num":"166",
+    "name":"Ledian",
+    "img":"http://www.serebii.net/pokemongo/pokemon/166.png",
+    "type": "Bug / Flying",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"167",
+    "num":"167",
+    "name":"Spinarak",
+    "img":"http://www.serebii.net/pokemongo/pokemon/167.png",
+    "type": "Bug / Poison",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"168",
+    "num":"168",
+    "name":"Ariados",
+    "img":"http://www.serebii.net/pokemongo/pokemon/168.png",
+    "type": "Bug / Poison",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"169",
+    "num":"169",
+    "name":"Crobat",
+    "img":"http://www.serebii.net/pokemongo/pokemon/169.png",
+    "type": "Poison / Flying",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"170",
+    "num":"170",
+    "name":"Chinchou",
+    "img":"http://www.serebii.net/pokemongo/pokemon/170.png",
+    "type": "Water / Electric",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"171",
+    "num":"171",
+    "name":"Lanturn",
+    "img":"http://www.serebii.net/pokemongo/pokemon/171.png",
+    "type": "Water / Electric",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
     "id":"172",
     "num":"172",
     "name":"Pichu",
@@ -1669,7 +1889,7 @@ const pokemons = [
     "height": "0.3 m",
     "weight": "2.0 kg",
     "candy": "25 Pikachu Candy",
-    "egg": "5 km"
+    "egg": "2 km"
   },
   {
     "id":"173",
@@ -1702,7 +1922,7 @@ const pokemons = [
     "height": "0.3 m",
     "weight": "1.5 kg",
     "candy": "50 Togepi Candy",
-    "egg": "5 km"
+    "egg": "2 km"
   },
   {
     "id":"176",
@@ -1715,6 +1935,677 @@ const pokemons = [
     "candy": "None",
     "egg": "Not in Eggs"
   },
+	{
+    "id":"177",
+    "num":"177",
+    "name":"Natu",
+    "img":"http://www.serebii.net/pokemongo/pokemon/177.png",
+    "type": "Psychic / Flying",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"178",
+    "num":"178",
+    "name":"Xatu",
+    "img":"http://www.serebii.net/pokemongo/pokemon/178.png",
+    "type": "Psychic / Flying",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"179",
+    "num":"179",
+    "name":"Mareep",
+    "img":"http://www.serebii.net/pokemongo/pokemon/179.png",
+    "type": "Electric",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"180",
+    "num":"180",
+    "name":"Flaaffy",
+    "img":"http://www.serebii.net/pokemongo/pokemon/180.png",
+    "type": "Electric",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"181",
+    "num":"181",
+    "name":"Ampharos",
+    "img":"http://www.serebii.net/pokemongo/pokemon/181.png",
+    "type": "Electric",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"182",
+    "num":"182",
+    "name":"Bellossom",
+    "img":"http://www.serebii.net/pokemongo/pokemon/182.png",
+    "type": "Grass",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"183",
+    "num":"183",
+    "name":"Marill",
+    "img":"http://www.serebii.net/pokemongo/pokemon/183.png",
+    "type": "Water / Fairy",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"184",
+    "num":"184",
+    "name":"Azumarill",
+    "img":"http://www.serebii.net/pokemongo/pokemon/184.png",
+    "type": "Water / Fairy",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"185",
+    "num":"185",
+    "name":"Sudowoodo",
+    "img":"http://www.serebii.net/pokemongo/pokemon/185.png",
+    "type": "Rock",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"186",
+    "num":"186",
+    "name":"Politoed",
+    "img":"http://www.serebii.net/pokemongo/pokemon/186.png",
+    "type": "Water",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"187",
+    "num":"187",
+    "name":"Hoppip",
+    "img":"http://www.serebii.net/pokemongo/pokemon/187.png",
+    "type": "Grass / Flying",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"188",
+    "num":"188",
+    "name":"Skiploom",
+    "img":"http://www.serebii.net/pokemongo/pokemon/188.png",
+    "type": "Grass / Flying",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"189",
+    "num":"189",
+    "name":"Jumpluff",
+    "img":"http://www.serebii.net/pokemongo/pokemon/189.png",
+    "type": "Grass / Flying",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"190",
+    "num":"190",
+    "name":"Aipom",
+    "img":"http://www.serebii.net/pokemongo/pokemon/190.png",
+    "type": "Normal",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"191",
+    "num":"191",
+    "name":"Sunkern",
+    "img":"http://www.serebii.net/pokemongo/pokemon/191.png",
+    "type": "Grass",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"192",
+    "num":"192",
+    "name":"Sunflora",
+    "img":"http://www.serebii.net/pokemongo/pokemon/192.png",
+    "type": "Grass",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"193",
+    "num":"193",
+    "name":"Yanma",
+    "img":"http://www.serebii.net/pokemongo/pokemon/193.png",
+    "type": "Bug / Flying",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"194",
+    "num":"194",
+    "name":"Wooper",
+    "img":"http://www.serebii.net/pokemongo/pokemon/194.png",
+    "type": "Water / Ground",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"195",
+    "num":"195",
+    "name":"Quagsire",
+    "img":"http://www.serebii.net/pokemongo/pokemon/195.png",
+    "type": "Water / Ground",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"196",
+    "num":"196",
+    "name":"Espeon",
+    "img":"http://www.serebii.net/pokemongo/pokemon/196.png",
+    "type": "Psychic",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"197",
+    "num":"197",
+    "name":"Umbreon",
+    "img":"http://www.serebii.net/pokemongo/pokemon/197.png",
+    "type": "Dark",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"198",
+    "num":"198",
+    "name":"Murkrow",
+    "img":"http://www.serebii.net/pokemongo/pokemon/198.png",
+    "type": "Dark / Flying",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"199",
+    "num":"199",
+    "name":"Slowking",
+    "img":"http://www.serebii.net/pokemongo/pokemon/199.png",
+    "type": "Water / Psychic",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"200",
+    "num":"200",
+    "name":"Misdreavus",
+    "img":"http://www.serebii.net/pokemongo/pokemon/200.png",
+    "type": "Ghost",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"201",
+    "num":"201",
+    "name":"Unown",
+    "img":"http://www.serebii.net/pokemongo/pokemon/201.png",
+    "type": "Psychic",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"202",
+    "num":"202",
+    "name":"Wobbuffet",
+    "img":"http://www.serebii.net/pokemongo/pokemon/202.png",
+    "type": "Psychic",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"203",
+    "num":"203",
+    "name":"Girafarig",
+    "img":"http://www.serebii.net/pokemongo/pokemon/203.png",
+    "type": "Normal / Psychic",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"204",
+    "num":"204",
+    "name":"Pineco",
+    "img":"http://www.serebii.net/pokemongo/pokemon/204.png",
+    "type": "Bug",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"205",
+    "num":"205",
+    "name":"Forretress",
+    "img":"http://www.serebii.net/pokemongo/pokemon/205.png",
+    "type": "Bug / Steel",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"206",
+    "num":"206",
+    "name":"Dunsparce",
+    "img":"http://www.serebii.net/pokemongo/pokemon/206.png",
+    "type": "Normal",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"207",
+    "num":"207",
+    "name":"Gligar",
+    "img":"http://www.serebii.net/pokemongo/pokemon/207.png",
+    "type": "Ground / Flying",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"208",
+    "num":"208",
+    "name":"Steelix",
+    "img":"http://www.serebii.net/pokemongo/pokemon/208.png",
+    "type": "Steel / Ground",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"209",
+    "num":"209",
+    "name":"Snubbull",
+    "img":"http://www.serebii.net/pokemongo/pokemon/209.png",
+    "type": "Fairy",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"210",
+    "num":"210",
+    "name":"Granbull",
+    "img":"http://www.serebii.net/pokemongo/pokemon/210.png",
+    "type": "Fairy",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"211",
+    "num":"211",
+    "name":"Qwilfish",
+    "img":"http://www.serebii.net/pokemongo/pokemon/211.png",
+    "type": "Water / Poison",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"212",
+    "num":"212",
+    "name":"Scizor",
+    "img":"http://www.serebii.net/pokemongo/pokemon/212.png",
+    "type": "Bug / Steel",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"213",
+    "num":"213",
+    "name":"Shuckle",
+    "img":"http://www.serebii.net/pokemongo/pokemon/213.png",
+    "type": "Bug / Rock",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"214",
+    "num":"214",
+    "name":"Heracross",
+    "img":"http://www.serebii.net/pokemongo/pokemon/214.png",
+    "type": "Bug / Fighting",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"215",
+    "num":"215",
+    "name":"Sneasel",
+    "img":"http://www.serebii.net/pokemongo/pokemon/215.png",
+    "type": "Dark / Ice",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"216",
+    "num":"216",
+    "name":"Teddiursa",
+    "img":"http://www.serebii.net/pokemongo/pokemon/216.png",
+    "type": "Normal",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"217",
+    "num":"217",
+    "name":"Ursaring",
+    "img":"http://www.serebii.net/pokemongo/pokemon/217.png",
+    "type": "Normal",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"218",
+    "num":"218",
+    "name":"Slugma",
+    "img":"http://www.serebii.net/pokemongo/pokemon/218.png",
+    "type": "Fire",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"219",
+    "num":"219",
+    "name":"Magcargo",
+    "img":"http://www.serebii.net/pokemongo/pokemon/219.png",
+    "type": "Fire / Rock",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"220",
+    "num":"220",
+    "name":"Swinub",
+    "img":"http://www.serebii.net/pokemongo/pokemon/220.png",
+    "type": "Ice / Ground",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"221",
+    "num":"221",
+    "name":"Piloswine",
+    "img":"http://www.serebii.net/pokemongo/pokemon/221.png",
+    "type": "Ice / Ground",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"222",
+    "num":"222",
+    "name":"Corsola",
+    "img":"http://www.serebii.net/pokemongo/pokemon/222.png",
+    "type": "Water / Rock",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"223",
+    "num":"223",
+    "name":"Remoraid",
+    "img":"http://www.serebii.net/pokemongo/pokemon/223.png",
+    "type": "Water",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"224",
+    "num":"224",
+    "name":"Octillery",
+    "img":"http://www.serebii.net/pokemongo/pokemon/224.png",
+    "type": "Water",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"225",
+    "num":"225",
+    "name":"Delibird",
+    "img":"http://www.serebii.net/pokemongo/pokemon/225.png",
+    "type": "Ice / Flying",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"226",
+    "num":"226",
+    "name":"Mantine",
+    "img":"http://www.serebii.net/pokemongo/pokemon/226.png",
+    "type": "Water / Flying",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"227",
+    "num":"227",
+    "name":"Skarmory",
+    "img":"http://www.serebii.net/pokemongo/pokemon/227.png",
+    "type": "Steel / Flying",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"228",
+    "num":"228",
+    "name":"Houndour",
+    "img":"http://www.serebii.net/pokemongo/pokemon/228.png",
+    "type": "Dark / Fire",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"229",
+    "num":"229",
+    "name":"Houndoom",
+    "img":"http://www.serebii.net/pokemongo/pokemon/229.png",
+    "type": "Dark / Fire",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"230",
+    "num":"230",
+    "name":"Kingdra",
+    "img":"http://www.serebii.net/pokemongo/pokemon/230.png",
+    "type": "Water / Dragon",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"231",
+    "num":"231",
+    "name":"Phanpy",
+    "img":"http://www.serebii.net/pokemongo/pokemon/231.png",
+    "type": "Ground",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"232",
+    "num":"232",
+    "name":"Donphan",
+    "img":"http://www.serebii.net/pokemongo/pokemon/232.png",
+    "type": "Ground",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"233",
+    "num":"233",
+    "name":"Porygon2",
+    "img":"http://www.serebii.net/pokemongo/pokemon/233.png",
+    "type": "Normal",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"234",
+    "num":"234",
+    "name":"Stantler",
+    "img":"http://www.serebii.net/pokemongo/pokemon/234.png",
+    "type": "Normal",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"235",
+    "num":"235",
+    "name":"Smeargle",
+    "img":"http://www.serebii.net/pokemongo/pokemon/235.png",
+    "type": "Normal",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"236",
+    "num":"236",
+    "name":"Tyrogue",
+    "img":"http://www.serebii.net/pokemongo/pokemon/236.png",
+    "type": "Fighting",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"237",
+    "num":"237",
+    "name":"Hitmontop",
+    "img":"http://www.serebii.net/pokemongo/pokemon/237.png",
+    "type": "Fighting",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
   {
     "id":"238",
     "num":"238",
@@ -1724,7 +2615,7 @@ const pokemons = [
     "height": "0.4 m",
     "weight": "6.0 kg",
     "candy": "25 Jynx Candy",
-    "egg": "10 km"
+    "egg": "5 km"
   },
   {
     "id":"239",
@@ -1735,7 +2626,7 @@ const pokemons = [
     "height": "0.6 m",
     "weight": "23.5 kg",
     "candy": "25 Electabuzz Candy",
-    "egg": "10 km"
+    "egg": "5 km"
   },
   {
     "id":"240",
@@ -1746,7 +2637,128 @@ const pokemons = [
     "height": "0.7 m",
     "weight": "21.4 kg",
     "candy": "25 Magmar Candy",
-    "egg": "10 km"
+    "egg": "5 km"
+  },
+	{
+    "id":"241",
+    "num":"241",
+    "name":"Miltank",
+    "img":"http://www.serebii.net/pokemongo/pokemon/241.png",
+    "type": "Normal",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"242",
+    "num":"242",
+    "name":"Blissey",
+    "img":"http://www.serebii.net/pokemongo/pokemon/242.png",
+    "type": "Normal",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"243",
+    "num":"243",
+    "name":"Raikou",
+    "img":"http://www.serebii.net/pokemongo/pokemon/243.png",
+    "type": "Electric",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"244",
+    "num":"244",
+    "name":"Entei",
+    "img":"http://www.serebii.net/pokemongo/pokemon/244.png",
+    "type": "Fire",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"245",
+    "num":"245",
+    "name":"Suicune",
+    "img":"http://www.serebii.net/pokemongo/pokemon/245.png",
+    "type": "Water",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"246",
+    "num":"246",
+    "name":"Larvitar",
+    "img":"http://www.serebii.net/pokemongo/pokemon/246.png",
+    "type": "Rock / Ground",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"247",
+    "num":"247",
+    "name":"Pupitar",
+    "img":"http://www.serebii.net/pokemongo/pokemon/247.png",
+    "type": "Rock / Ground",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"248",
+    "num":"248",
+    "name":"Tyranitar",
+    "img":"http://www.serebii.net/pokemongo/pokemon/248.png",
+    "type": "Rock / Dark",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"249",
+    "num":"249",
+    "name":"Lugia",
+    "img":"http://www.serebii.net/pokemongo/pokemon/249.png",
+    "type": "Psychic / Flying",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"250",
+    "num":"250",
+    "name":"Ho-Oh",
+    "img":"http://www.serebii.net/pokemongo/pokemon/250.png",
+    "type": "Fire / Flying",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
+  },
+	{
+    "id":"251",
+    "num":"251",
+    "name":"Celebi",
+    "img":"http://www.serebii.net/pokemongo/pokemon/251.png",
+    "type": "Psychic / Grass",
+    "height": " m",
+    "weight": " kg",
+    "candy": " Candy",
+    "egg": "Not in Eggs"
   }
 ];
 
