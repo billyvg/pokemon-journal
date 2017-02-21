@@ -2050,7 +2050,7 @@ const pokemons = [
     "num":"187",
     "name":"Hoppip",
     "img":"http://www.serebii.net/pokemongo/pokemon/187.png",
-    "type": "Grass / Flying"
+    "type": "Grass / Flying",
     "height": " m",
     "weight": " kg",
     "candy": " Candy",
