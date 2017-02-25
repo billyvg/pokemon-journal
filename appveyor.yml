@@ -20,6 +20,10 @@ matrix:
 
 build: off
 
+artifacts:
+  - path: release/PokemonJournal Setup*.exe
+    name: setupfile
+
 version: '{build}'
 
 shallow_clone: true

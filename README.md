@@ -1,3 +1,5 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/i8ktnrle8p2yl73b?svg=true)](https://ci.appveyor.com/project/billyvg/pokemon-journal)
+
 # Pokemon Journal
 View your pokemon and their individual values.
 
