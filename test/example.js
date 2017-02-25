@@ -1,9 +1,7 @@
-/* eslint func-names: 0 */
-import { expect } from 'chai';
-
+/* eslint-disable func-names */
 
 describe('description', () => {
-  it('description', () => {
-    expect(1 + 2).to.equal(3);
+  it('should have description', () => {
+    expect(1 + 2).toBe(3);
   });
 });
