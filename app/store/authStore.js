@@ -1,5 +1,5 @@
 import fs from 'fs';
-import storage from 'electron-json-storage';
+import storage from 'electron-storage';
 import {
   observable,
   action,
@@ -30,7 +30,7 @@ class Auth {
 
   constructor() {
     this.client = new Client();
-    storage.get('pokemonJournal', (err, data) => {
+    storage.get('pokemonJournal', (err, data = {}) => {
       this.username = data.username;
       this.provider = data.provider || this.provider;
     });

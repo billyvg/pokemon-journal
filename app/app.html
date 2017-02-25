@@ -5,27 +5,31 @@
     <title>Pokemon Journal</title>
     <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.min.css" />
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,100,700,400italic,500italic,300italic,100italic,700italic,900,900italic' rel='stylesheet' type='text/css'>
-
+    
     <script>
       (function() {
         if (!process.env.HOT) {
           const link = document.createElement('link');
           link.rel = 'stylesheet';
-          link.href = '../dist/style.css';
-          document.write(link.outerHTML);
+          link.href = './dist/style.css';
+          // HACK: Writing the script path should be done with webpack
+          document.getElementsByTagName('head')[0].appendChild(link);
         }
       }());
     </script>
   </head>
-
   <body>
     <div id="root"></div>
     <script>
-      (function() {
+      {
         const script = document.createElement('script');
-        script.src = (process.env.HOT) ? 'http://localhost:3000/dist/bundle.js' : '../dist/bundle.js';
-        document.write(script.outerHTML);
-      }());
+        const port = process.env.PORT || 3000;
+        script.src = (process.env.HOT)
+          ? 'http://localhost:' + port + '/dist/bundle.js'
+          : './dist/bundle.js';
+        // HACK: Writing the script path should be done with webpack
+        document.body.appendChild(script);
+      }
     </script>
   </body>
 </html>

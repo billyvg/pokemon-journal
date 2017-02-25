@@ -3,20 +3,34 @@
   "extends": "airbnb",
   "env": {
     "browser": true,
-    "mocha": true,
     "node": true
   },
   "rules": {
-    "no-underscore-dangle": 0,
-    "consistent-return": 0,
-    "comma-dangle": 0,
-    "no-use-before-define": 0,
-    "import/no-unresolved": [2, { "ignore": ["electron"] }],
-    "react/jsx-no-bind": 0,
-    "react/prefer-stateless-function": 0
+    "arrow-parens": ["off"],
+    "compat/compat": 2,
+    "consistent-return": "off",
+    "comma-dangle": "off",
+    "generator-star-spacing": "off",
+    "import/no-unresolved": ["error", { "ignore": ["electron"] }],
+    "import/no-extraneous-dependencies": "off",
+    "no-console": 0,
+    "no-use-before-define": "off",
+    "no-multi-assign": 0,
+    "promise/param-names": 2,
+    "promise/always-return": 2,
+    "promise/catch-or-return": 2,
+    "promise/no-native": 0,
+    "react/jsx-no-bind": "off",
+    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
+    "react/prefer-stateless-function": "off",
+    "flowtype-errors/show-errors": 2
   },
   "plugins": [
+    "flowtype",
+    "flowtype-errors",
     "import",
+    "promise",
+    "compat",
     "react"
   ],
   "settings": {

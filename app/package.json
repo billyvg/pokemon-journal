@@ -1,0 +1,20 @@
+{
+  "name": "pokemon-journal",
+  "productName": "PokemonJournal",
+  "version": "0.2.2",
+  "description": "View detailed statistics about your Pokemon inventory (Pokemon Go)",
+  "main": "main.js",
+  "author": {
+    "name": "Billy Vong",
+    "email": "billy@mmo.me",
+    "url": "https://github.com/billyvg"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "pogobuf": "^1.10.0"
+  },
+  "devEngines": {
+    "node": ">=6.x",
+    "npm": ">=3.x"
+  }
+}

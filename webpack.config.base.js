@@ -1,6 +1,12 @@
-import path from 'path';
+/**
+ * Base webpack config used across other specific configs
+ */
 
-export default {
+import path from 'path';
+import validate from 'webpack-validator';
+import { dependencies as externals } from './app/package.json';
+
+export default validate({
   module: {
     loaders: [{
       test: /\.jsx?$/,
@@ -11,22 +17,24 @@ export default {
       loader: 'json-loader'
     }]
   },
+
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'app'),
     filename: 'bundle.js',
+
+    // https://github.com/webpack/webpack/issues/1114
     libraryTarget: 'commonjs2'
   },
+
+  /**
+   * Determine the array of extensions that should be used to resolve modules.
+   */
   resolve: {
     extensions: ['', '.js', '.jsx', '.json'],
     packageMains: ['webpack', 'browser', 'web', 'browserify', ['jam', 'main'], 'main']
   },
-  plugins: [
 
-  ],
-  externals: [
-    // put your node 3rd party libraries which can't be built with webpack here
-    // (mysql, mongodb, and so on..)
-    'pogobuf',
-    'long'
-  ]
-};
+  plugins: [],
+
+  externals: Object.keys(externals || {})
+});

@@ -1,27 +1,42 @@
+/**
+ * Build config for electron 'Main Process' file
+ */
+
 import webpack from 'webpack';
+import validate from 'webpack-validator';
 import merge from 'webpack-merge';
+import BabiliPlugin from 'babili-webpack-plugin';
 import baseConfig from './webpack.config.base';
 
-export default merge(baseConfig, {
+export default validate(merge(baseConfig, {
   devtool: 'source-map',
 
-  entry: ['babel-polyfill', './main.development'],
+  entry: ['babel-polyfill', './app/main.development'],
 
+  // 'main.js' in root
   output: {
     path: __dirname,
-    filename: './main.js'
+    filename: './app/main.js'
   },
 
   plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      compressor: {
-        warnings: false
-      }
+    /**
+     * Babli is an ES6+ aware minifier based on the Babel toolchain (beta)
+     */
+    new BabiliPlugin({
+      // Disable deadcode until https://github.com/babel/babili/issues/385 fixed
+      deadcode: false,
     }),
-    new webpack.BannerPlugin(
-      'require("source-map-support").install();',
-      { raw: true, entryOnly: false }
-    ),
+
+    /**
+     * Create global constants which can be configured at compile time.
+     *
+     * Useful for allowing different behaviour between development builds and
+     * release builds
+     *
+     * NODE_ENV should be production so that modules do not perform certain
+     * development checks
+     */
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production')
@@ -29,15 +44,19 @@ export default merge(baseConfig, {
     })
   ],
 
+  /**
+   * Set target to Electron specific node.js env.
+   * https://github.com/chentsulin/webpack-target-electron-renderer#how-this-module-works
+   */
   target: 'electron-main',
 
+  /**
+   * Disables webpack processing of __dirname and __filename.
+   * If you run the bundle in node.js it falls back to these values of node.js.
+   * https://github.com/webpack/webpack/issues/2010
+   */
   node: {
     __dirname: false,
     __filename: false
   },
-
-  externals: [
-    'font-awesome',
-    'source-map-support'
-  ]
-});
+}));
