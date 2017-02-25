@@ -1,8 +1,8 @@
 {
-  "name": "electron-react-boilerplate",
-  "productName": "ElectronReact",
+  "name": "pokemon-journal",
+  "productName": "PokemonJournal",
   "version": "1.0.0",
-  "description": "Electron application boilerplate based on React, React Router, Webpack, React Hot Loader for rapid application development",
+  "description": "View detailed statistics about your Pokemon inventory (Pokemon Go)",
   "main": "main.js",
   "scripts": {
     "test": "cross-env NODE_ENV=test BABEL_DISABLE_CACHE=1 jest \"(\\\\|/)test(\\\\|/)(?!.*e2e\\.spec\\.js).+\\.spec\\.js\"",
@@ -31,7 +31,6 @@
   "build": {
     "productName": "PokemonJournal",
     "appId": "org.billyvg.PokemonJournal",
-    "category": "public.app-category.tools",
     "dmg": {
       "contents": [
         {
@@ -56,7 +55,7 @@
       "package.json"
     ],
     "win": {
-      "target": "nsis"
+      "target": ["nsis"]
     },
     "linux": {
       "target": [
