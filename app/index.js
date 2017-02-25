@@ -3,15 +3,14 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, hashHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
-import routes from './routes';
-import configureStore from './store/configureStore';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import {
   Provider as MobxProvider,
 } from 'mobx-react';
 
+import routes from './routes';
+import configureStore from './store/configureStore';
 import authStore from './store/authStore';
-
 import './app.global.css';
 
 // Needed for onTouchTap

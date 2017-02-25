@@ -9,7 +9,6 @@ import autobind from 'autobind-decorator';
 import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import SortIcon from 'material-ui/svg-icons/content/sort';
 import ScheduleIcon from 'material-ui/svg-icons/action/schedule';
 import AlphaIcon from 'material-ui/svg-icons/av/sort-by-alpha';
@@ -20,8 +19,6 @@ export type Props = {
   authStore: Object;
   iconColor: string;
 };
-
-import styles from './SortMenu.css';
 
 @inject('authStore')
 @autobind

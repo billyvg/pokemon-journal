@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
-import styles from './Home.css';
 import TextField from 'material-ui/TextField';
+import styles from './Home.css';
 
 export default class Login extends Component {
   render() {

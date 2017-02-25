@@ -143,6 +143,8 @@ class Auth {
         this._pokemon = filtered;
       }
       this.loading = false;
+
+      return this._pokemon;
     })
     .catch((err) => {
       this.loading = false;

@@ -26,7 +26,7 @@ export default class Login extends Component {
       authStore,
     } = this.props;
     e.preventDefault();
-    authStore.login().then(() => authStore.getPokemon());
+    return authStore.login().then(() => authStore.getPokemon());
   }
 
   handleSelect(e, index, value) {
@@ -37,7 +37,7 @@ export default class Login extends Component {
     authStore.setProvider(value);
   }
 
-  handleUsername(e, value) {
+  handleUsername(e) {
     const {
       authStore,
     } = this.props;
@@ -45,7 +45,7 @@ export default class Login extends Component {
     authStore.username = e.target.value;
   }
 
-  handlePassword(e, value) {
+  handlePassword(e) {
     const {
       authStore,
     } = this.props;

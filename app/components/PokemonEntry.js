@@ -1,8 +1,7 @@
+/* eslint camelcase:0 */
 import React, { Component } from 'react';
-import { Link } from 'react-router';
 
 import Avatar from 'material-ui/Avatar';
-import { Card, CardHeader, CardTitle, CardText, CardMedia } from 'material-ui/Card';
 
 import {
   inject,
@@ -12,11 +11,16 @@ import autobind from 'autobind-decorator';
 
 import styles from './PokemonEntry.css';
 
+export type Props = {
+  pokemon: Object;
+};
 
 @inject('authStore')
 @autobind
 @observer
 export default class PokemonEntry extends Component {
+  props: Props;
+
   render() {
     const {
       pokemon,
@@ -26,10 +30,18 @@ export default class PokemonEntry extends Component {
       currCP,
       minCP,
       maxCP,
+      individual_attack,
+      individual_defense,
+      individual_stamina,
     } = pokemon;
 
     const percentMaxCp = Math.floor(((currCP - minCP) / (maxCP - minCP)) * 100);
-    const percentMaxIv = Math.floor(((pokemon.individual_attack || 0) + (pokemon.individual_defense || 0) + (pokemon.individual_stamina || 0)) / 45 * 100);
+    const percentMaxIv = Math.floor(
+      ((individual_attack || 0) +
+        (individual_defense || 0) +
+        (individual_stamina || 0)) /
+      (45 * 100)
+    );
 
     return (
       <div className={styles.container}>
@@ -54,7 +66,8 @@ export default class PokemonEntry extends Component {
             IV
           </span>
           <span>
-            {pokemon.individual_attack || 0}/{pokemon.individual_defense || 0}/{pokemon.individual_stamina || 0} ({percentMaxIv}%)
+            {individual_attack || 0}/{individual_defense || 0}/{individual_stamina || 0}
+            ({percentMaxIv}%)
           </span>
         </div>
       </div>

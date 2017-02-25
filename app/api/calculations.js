@@ -1,4 +1,4 @@
-import baseStats from './baseStats';
+import baseStats from './baseStats.json';
 
 export function convertIV(id, stam, atk, def, multiplier) {
   const {
@@ -9,9 +9,10 @@ export function convertIV(id, stam, atk, def, multiplier) {
   const stamina = (BaseStamina + (stam || 0)) * multiplier;
   const attack = (BaseAttack + (atk || 0)) * multiplier;
   const defense = (BaseDefense + (def || 0)) * multiplier;
-  return Math.floor(Math.pow(stamina, 0.5) * attack * Math.pow(defense, 0.5)) / 10;
+  return Math.floor((stamina ** 0.5) * attack * (defense ** 0.5)) / 10;
 }
 
+/* eslint-disable camelcase */
 export function calculateCP(mon) {
   const {
     pokemon_id,
@@ -26,8 +27,9 @@ export function calculateCP(mon) {
   return {
     minCP: convertIV(pokemon_id, 0, 0, 0, multiplier),
     currCP: convertIV(
-			pokemon_id, individual_stamina, individual_attack, individual_defense, multiplier
-		),
+      pokemon_id, individual_stamina, individual_attack, individual_defense, multiplier
+    ),
     maxCP: convertIV(pokemon_id, 15, 15, 15, multiplier),
   };
 }
+/* eslint-enable camelcase */

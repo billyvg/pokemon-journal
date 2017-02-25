@@ -9,9 +9,15 @@ import PokemonEntry from './PokemonEntry';
 import styles from './PokemonList.css';
 
 
+type Props = {
+  authStore: any;
+};
+
 @inject('authStore')
 @observer
-export default class PokemonList extends Component {
+export default class PokemonList extends Component<Props> {
+  props: Props;
+
   render() {
     const {
       authStore,
@@ -19,14 +25,12 @@ export default class PokemonList extends Component {
 
     return (
       <div className={styles.container}>
-        {authStore.pokemon.map((pokemon, i) => {
-          return (
-            <PokemonEntry
-              key={i}
-              pokemon={pokemon}
-            />
-            );
-        })}
+        {authStore.pokemon.map((pokemon, i) => (
+          <PokemonEntry
+            key={i}
+            pokemon={pokemon}
+          />
+            ))}
       </div>
     );
   }
