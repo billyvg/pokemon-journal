@@ -15,6 +15,7 @@ import POKEMON_META from '../api/pokemons';
 import Sort from '../api/sort';
 import { calculateCP } from '../api/calculations';
 
+const pogobuf = require('pogobuf');
 const FILENAME = 'response.json';
 
 class Auth {
@@ -24,6 +25,8 @@ class Auth {
   @observable password;
   @observable authed = false;
   @observable _pokemon = [];
+  @observable _pokemon_settings = [];
+  @observable _candies = [];
   @observable hasSavedData = false;
   @observable notification = {};
   @observable loading = false;
@@ -44,6 +47,16 @@ class Auth {
     }
 
     return Sort.recent(this._pokemon.slice());
+  }
+
+  @computed
+  get pokemon_settings() {
+    return this._pokemon_settings;
+  }
+
+  @computed
+  get candies() {
+    return this._candies;
   }
 
   @computed
@@ -76,7 +89,7 @@ class Auth {
 
       return authLib.login(this.username, this.password).then((token) => {
         this.client.setAuthInfo(this.provider, token);
-        this.client.setPosition(0, 0);
+        // this.client.setPosition(0, 0);
         this.authed = token;
         this.password = '';
         return this.client.init();
@@ -127,6 +140,11 @@ class Auth {
       () => this.client.getInventory(0)
     )
     .then((inventory) => {
+      var temp_inventories = pogobuf.Utils.splitInventory(inventory);
+      this._candies = temp_inventories.candies;
+      return inventory;
+    })
+    .then((inventory) => {
       if (inventory.inventory_delta && inventory.inventory_delta.inventory_items) {
         const filtered = inventory.inventory_delta.inventory_items.filter((item) =>
           item.inventory_item_data.pokemon_data && item.inventory_item_data.pokemon_data.pokemon_id
@@ -139,9 +157,14 @@ class Auth {
             meta,
           };
         });
-
         this._pokemon = filtered;
       }
+    })
+    .then(
+      () => this.client.downloadItemTemplates()
+    ).then((templates) => {
+      templates = pogobuf.Utils.splitItemTemplates(templates);
+      this._pokemon_settings = templates.pokemon_settings; 
       this.loading = false;
     })
     .catch((err) => {
@@ -151,6 +174,7 @@ class Auth {
         type: 'error',
       });
       console.error('Error retrieving inventory', err);
+      console.error(err);
     });
   });
 
@@ -160,10 +184,62 @@ class Auth {
       type,
     };
   });
-
+  
   clearNotification = action('clearNotification', () => {
     this.notifcation = {};
   });
+
+  @action transferPokemon(pokemonId) {
+    return this.login().then(
+      () => {
+      this.client.releasePokemon(pokemonId);
+    }).then(
+      () => { 
+      this.getPokemon(); 
+    }).catch((err) => {
+      console.error('Error release pokemon');
+      console.error(err);
+    });
+  }
+
+  @action toggleFavoritePokemon(pokemonId, favorite) {
+    return this.login().then(
+      () => {
+      this.client.setFavoritePokemon(pokemonId, favorite);
+    }).then(
+      () => {
+      this.getPokemon();
+    }).catch((err) => {
+      console.error('Error toggle favorite pokemon');
+      console.error(err);
+    });
+  }
+
+  @action powerUpPokemon(pokemonId) {
+    return this.login().then(
+      () => {
+      this.client.upgradePokemon(pokemonId);
+    }).then(
+      () => {
+      this.getPokemon(); 
+    }).catch((err) => {
+      console.error('Error power up pokemon');
+      console.error(err);
+    });
+  }
+
+  @action evolvePokemon(pokemonId) {
+    return this.login().then(
+      () => {
+      this.client.evolvePokemon(pokemonId);
+    }).then(
+      () => {
+      this.getPokemon(); 
+    }).catch((err) => {
+      console.error('Error evolve pokemon');
+      console.error(err);
+    });
+  }
 }
 
 const authStore = new Auth();
