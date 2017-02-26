@@ -21,8 +21,8 @@ matrix:
 build: off
 
 artifacts:
-  - path: release/PokemonJournal Setup*.exe
-    name: setupfile
+  - path: 'release/*.exe'
+    name: winsetup
 
 version: '{build}'
 
