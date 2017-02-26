@@ -54,3 +54,13 @@ test_script:
   - npm run build
   - npm run test-e2e
   - npm run package
+
+deploy:
+- provider: GitHub
+  auth_token:
+    secure: T96FLR08Vz4Dpeq9tx10kDCAYae/BfMGJjvxQRTraalFgNqZz3MS+B8k7HAxERqc
+  artifact: winsetup
+  draft: true
+  force_update: true
+  on:
+    branch: master
